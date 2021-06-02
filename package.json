@@ -1,0 +1,14 @@
+{
+  "name": "notourus",
+  "version": "1.0.0",
+  "description": "landing page",
+  "main": "index.js",
+  "scripts": {
+    "compile": "node-sass sass/style.scss css/style.css -w"
+  },
+  "author": "Ahmed",
+  "license": "ISC",
+  "devDependencies": {
+    "node-sass": "^4.13.1"
+  }
+}

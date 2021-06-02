@@ -1,0 +1,381 @@
+
+
+//buttons
+
+.btn{
+    display: inline-block;
+    padding: 1.5rem 4rem;
+    border-radius: 10rem;
+    text-transform: uppercase;
+    position: relative;
+    font-size: 1.6rem;
+    border:0;
+    outline:none;
+    &__white{
+       background-color: #fff;
+       color: $color-gray;
+       &::after{
+         background-color: #fff;
+       }
+    }
+    &__green{
+      background-color: #55c57a;
+      color:#fff;
+      &::after{
+         background-color: #55c57a;
+       }
+    }
+    
+    &__animated{
+       animation: moveToTop 0.8s ease-out 0.8s;
+       animation-fill-mode: backwards;
+    }
+    &:hover{
+       transform: translateY(-3px);
+       box-shadow: 0 1rem 2rem rgba($color-black,0.2);
+
+       &::after{
+         transform: scale(1.5);
+         opacity: 0;
+      }
+    }
+    &:active{
+       transform: translateY(-1px);
+       box-shadow: 0 .5rem 1rem rgba($color-black,0.2);
+    }
+    &::after{
+       content:" ";
+       display: inline-block;
+       width:100%;
+       height: 100%;
+       border-radius: 10rem;
+       position: absolute;
+       top:0;
+       left:0;
+       z-index: -1;
+       transition: all 0.5s;
+    }
+ }
+ .btn_learn{
+    font-size: 1.6rem;
+    color:$color-light;
+    margin: 2rem 0 4rem 0;
+    border-bottom: 1px solid $color-light;
+    padding: .5rem 1rem;
+    display: inline-block;
+    transition: all 0.2s ease;
+    &:hover{
+       background-color:$color-medium-2;
+       color: #fff;
+       box-shadow: 0 2rem 3rem rgba($color-black,0.2);
+       transform: translateY(-3px);
+       border-radius: 10rem;
+    }
+    &:active{
+       transform: translateY(-1px);
+    }
+ }
+
+ //features_cards
+ .feature__box{
+   background-color: rgba($color-light-gray,0.8);
+   padding:3rem;
+   transition: all 0.3s;
+   box-shadow: 2rem 2rem 3rem rgba(0,0,0,0.2);
+   border-radius: 0.5rem;
+   @include respond(lrg){ 
+      margin: 0 1rem 3rem 2rem !important;
+    }
+   &:hover{ 
+      transform: translateY(-1.2rem) scale(1.02);
+   }
+ }
+
+ //Flip Card
+
+.tours{
+   &__box{
+      height: 50rem;
+      position: relative;
+      perspective: 150rem;
+      &:hover &-card{
+         transform: rotateY(-180deg);
+      }
+      &:hover &-card--back{
+         transform: rotateY(0deg);
+      }
+      @include respond(lrg){
+         height:55rem;
+         margin: 0 0 5rem 0;
+      }
+      &-card{
+         height: 50rem;
+         position: absolute;
+         top: 0;
+         left:0;
+         width:100%;
+         font-size: 2rem;
+         color:#fff;
+         overflow: hidden;
+         border-radius: .5rem;
+         backface-visibility: hidden;
+         transition: all 0.8s ease;
+         box-shadow: 0 1.5rem 4rem rgba(0,0,0,0.3);
+         &--back{
+            transform: rotateY(180deg);
+            &-1{
+               background-image: linear-gradient(to right bottom,
+               rgba($color-blend-1_1, 0.8),
+               rgba($color-blend-1_2, 0.8));
+            }
+            &-2{
+               background-image: linear-gradient(to right bottom,
+               rgba($color-blend-2_1, 0.8),
+               rgba($color-blend-2_2, 0.8));
+            }
+            &-3{
+               background-image: linear-gradient(to right bottom,
+               rgba($color-blend-3_1, 0.8),
+               rgba($color-blend-3_2, 0.8));
+            }
+         }
+         @include respond(lrg){
+            height:55rem;
+         }
+      }
+   }
+  
+   &__header{
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: screen;
+    clip-path: polygon(0 0,100% 0,100% 90%,0 100%);
+    height: 50%;
+    position: relative;
+    &--1{
+      background-image: linear-gradient(to right bottom,
+      rgba($color-blend-1_1, 0.8),
+      rgba($color-blend-1_2, 0.8)),
+      url(../img/nat-5.jpg); 
+   }
+   &--2{
+      background-image: linear-gradient(to right bottom,
+      rgba($color-blend-2_1, 0.8),
+      rgba($color-blend-2_2, 0.8)),
+      url(../img/nat-6.jpg); 
+   }
+   &--3{
+      background-image: linear-gradient(to right bottom,
+      rgba($color-blend-3_1, 0.8),
+      rgba($color-blend-3_2, 0.8)),
+      url(../img/nat-7.jpg); 
+   }
+    h3{
+      font-size: 2.8rem;
+      font-weight: 300;
+      text-transform: uppercase;
+      text-align: right;
+      color: #fff;
+      position: absolute;
+      top: 13rem;
+      right: 1rem;
+      width: 75%;
+      span{
+         padding: 1rem 2.5rem;
+         -webkit-box-decoration-break:clone;
+         box-decoration-break:clone;
+         background-image: linear-gradient(to right bottom,
+         rgba($color-blend-1_1, 0.8),
+         rgba($color-blend-1_2, 0.8));
+      }
+      .span--1{
+         background-image: linear-gradient(to right bottom,
+         rgba($color-blend-1_1, 0.8),
+         rgba($color-blend-1_2, 0.8));
+      }
+      .span--2{
+         background-image: linear-gradient(to right bottom,
+         rgba($color-blend-2_1, 0.8),
+         rgba($color-blend-2_2, 0.8));
+      }
+      .span--3{
+         background-image: linear-gradient(to right bottom,
+         rgba($color-blend-3_1, 0.8),
+         rgba($color-blend-3_2, 0.8));
+      }
+
+    }
+   }
+   &__content{
+      ul{
+         margin: 0 auto;
+         width: 57%;
+         padding: 1rem;
+         li{
+            font-size: 1.75rem;
+            font-weight: 300;
+            color: #777;
+            &:not(:last-child){
+               border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+            }
+            margin-bottom: 1.6rem;
+            text-align: center;
+         }
+      }
+   }
+   &__price{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      width:52%;
+      p:first-of-type{
+         font-size: 5rem;
+         font-weight: 100;
+      }
+       p:last-of-type{
+         margin: 3rem 0 5rem 0;
+         font-size: 7rem;
+         font-weight: 100;
+      }
+   }
+   &__btn{
+      margin-top:15rem;
+   }
+   &__tap{
+      color: #a6dec5;
+      font-size: 1.6rem;
+      margin-bottom: 2rem;
+      display: none;
+      @include respond(lrg){
+         display: block;
+      }
+   }
+}
+
+ // Quotes
+
+ .story{
+   background-color: #ffffffb3;
+   padding: 6rem;
+   width: 70%;
+   margin: 0 auto;
+   transform: skewX(-12deg);
+   @include respond(sml){
+      width:100%;
+   }
+   &__image-block{
+      width: 30%;
+      height: 130px;
+      float: left;
+      shape-outside: circle(50% at 50% 50%);
+      transform: translate(-21px);
+      clip-path: circle(50% at 50% 50%);
+      position: relative;
+      @include respond(med){
+         bottom: 2rem;
+      }
+   }
+   &__image{
+      height: 100%;
+      transform: translate(-5px) scale(1.5);
+      transition: all 0.3s ease;
+   }
+   &__caption{
+      transform: translate(-50%, -50%);
+      position: absolute;
+      top: 90%;
+      left: 55%;
+      opacity:0;
+      color: #fff;
+      font-size: 2.2rem;
+      transition: all 0.4s ease;
+   }
+   &:hover &__caption{
+      top:50%;
+      opacity:1;
+   }
+   &:hover &__image{
+      transform: translate(-5px) scale(1.2);
+      filter:blur(3px) brightness(80%)
+   }
+   
+}
+
+//form
+
+.form{
+   font-family: inherit;
+   &__group{
+      margin-bottom: 2rem;
+   }
+   &__input{
+      width: 100%;
+      padding: 1.3rem;
+      outline: none;
+      border: 0;
+      border-radius: 3px;
+      opacity: 0.9;
+
+      &:focus{
+         border-bottom: 3px solid #2bb585;
+      }
+      &:invalid:focus{
+         border-bottom: 3px solid #b52b2b;
+      }
+   }
+
+   &__input:placeholder-shown + &__label{
+         transform: translate(1.2rem, -2.9rem);
+         opacity:0;
+   }
+
+   &__label{
+      transform: translate(10px,6px);
+      display: block;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+   }
+   ::placeholder{
+      color:$color-light-gray-2;
+   } 
+   &__radio{
+      display: none;
+   }
+   &__radio-group{
+      width:49%;
+      display: inline-block;
+   }
+   &__radio-label{
+      font-size: 1.6rem;
+   }
+   &__radio-button{
+      display: inline-block;
+      width: 3rem;
+      height: 3rem;
+      border-radius: 50%;
+      border: 3px solid #42be7e;
+      transform: translate(-6px,8px);
+      &::after{
+         content: "";
+         background-color: #38ba81;
+         width: 1.4rem;
+         height: 1.4rem;
+         border-radius: 50%;
+         transform: translate(-50%, -50%);
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         opacity:0;
+         transition: all .2s ease;
+      }
+   }
+   &__submit{
+      margin-top:2rem;
+      cursor: pointer;
+   }
+   &__radio:checked + &__radio-label &__radio-button::after{
+      opacity:1;
+   }
+}

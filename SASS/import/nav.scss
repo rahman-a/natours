@@ -1,0 +1,167 @@
+.navigation{
+    position: absolute;
+    width: 95.5%;
+    height: 100vh;
+
+    &__check{
+        display: none;
+    }
+    &__label{
+        position: fixed;
+        top: 5.9rem;
+        right: 5.7rem;
+        width: 6.5rem;
+        height: 6.5rem;
+        border-radius: 50%;
+        background-color: white;
+        z-index: 100010;
+        box-shadow: 0.5rem 2rem 3rem rgba(0,0,0,0.2);
+        cursor:pointer;
+    }
+    
+    &__ham{
+        position: relative;
+        &,
+        &::after,
+        &::before{
+            display:block;
+            height: 2px;
+            width:50%;
+            background-color: #000;
+            top:52%;
+            left:50%;
+            transform: translate(-50%, -50%);
+            transition: all 0.2s ease;
+        }
+        &::after,
+        &::before{
+            content:" ";
+            position:absolute;
+        }
+        &::after{ 
+            top: 9px;
+            width:100%;
+        }
+        &::before{
+            top: -7px;
+            width:100%;
+        }
+    }
+
+    &__label:hover &__ham::after{
+        top:11px;
+    }
+    &__label:hover &__ham::before{
+        top:-10px;
+    }
+    &__check:checked ~ &__label &__ham{
+        background-color: transparent;
+    }
+    &__check:checked ~ &__label &__ham::after{
+        top: 8px;
+        left: -4px;
+        transform-origin: right;
+        transform: rotate(41deg);
+        @include respond(lrgst){
+            top:10px;
+            left:-4px;
+            transform: rotate(42deg);
+        }
+        @include respond(lrg){
+            top:11px;
+            left:-2px;
+            transform: rotate(47deg);
+        }
+        @include respond(med){
+            top:-8px;
+            left:3px;
+            transform-origin: left;
+            transform: rotate(48deg);
+        }
+    }
+    &__check:checked ~ &__label &__ham::before{
+        top: -15px;
+        left: 28px;
+        width: 100%;
+        transform-origin: left;
+        transform: rotate(130deg);
+        @include respond(lrgst){
+            top:-12px;
+            left:23px;
+            transform: rotate(123deg);
+        }
+        @include respond(lrg){
+            top:-8px;
+            left:23px;
+            transform: rotate(131deg);
+        }
+        @include respond(med){
+            top:-8px;
+            left:17px;
+            transform: rotate(134deg);
+        }
+    }
+    &__bg{
+        position: fixed;
+        top: 6rem;
+        right: 6rem;
+        width: 6rem;
+        height: 6rem;
+        border-radius: 50%;
+        background-image:radial-gradient($color-light,$color-medium);
+        z-index: 1000;
+        transition: transform 0.5s ease;
+    }
+    &__nav{
+        position: fixed;
+        width:0%;
+        height: 100vh;
+        z-index: 10005;
+        visibility: hidden;
+        opacity:0;
+        transition: all .3s ease;
+    }
+    &__list{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        @include respond(smlst){
+            width:100%;
+        }
+    }
+    &__item{
+        margin-bottom:2rem;
+        text-align: center;
+        
+    }
+    &__link{
+        display: inline-block;
+        color:#fff;
+        font-size:3rem;
+        font-weight: 300;
+        padding: 1rem 2rem;
+        border-bottom: 2px solid $color-light;
+        text-transform: uppercase;
+        background-image: linear-gradient(120deg, transparent 50%, #fff 50%);
+        background-size: 240%;
+        transition: all 0.5s ease;
+        &:hover{
+            background-position:100%;
+            color:$color-dark;
+        }
+        span{
+            margin-right:1.6rem;
+        }
+    }
+    &__check:checked ~ &__bg{
+        transform: scale(67);
+    }
+    &__check:checked ~ &__nav{
+        width:100%;
+        visibility: visible;
+        opacity:1;
+    }
+ }   
+ 
+ 

@@ -1,0 +1,53 @@
+@mixin clearFix {
+    &::after{
+        content:"";
+        display: table;
+        clear:both;
+    }
+}
+
+
+////////// Responsive Panel ///////////////
+
+/*
+
+ $lrgst : 75em;  1200px
+ $lrg: 62.5em;  1000px
+ $med: 50em;   800px
+ $sml: 37.5em;  600px
+ $sml: 25em;  400px
+
+ */
+
+ @mixin respond ($rb) {
+
+    @if $rb == lrgst {
+        @media (max-width: 75em){
+            @content
+        };
+    }
+
+    @if $rb == lrg {
+        @media (max-width: 62.5em){
+            @content
+        };
+    }
+
+    @if $rb == med {
+        @media (max-width: 50em){
+            @content
+        };
+    }
+
+    @if $rb == sml {
+        @media (max-width: 37.5em){
+            @content
+        };
+    }
+    @if $rb == smlst {
+        @media (max-width: 25em){
+            @content
+        };
+    }
+    
+}
